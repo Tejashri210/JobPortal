@@ -11,7 +11,7 @@ const Stripes = ({ className }) => {
     { text: <IoLogoSkype />, num: 308, title: "Full_Stack" },
   ]
   return (
-    <div className={`flex ml-0 mt-2 justify-center absolute gap-6 bottom-5 ${className}`}>
+    <div className={`flex ml-0 mt-2 justify-center gap-6 bottom-5 ${className}`}>
       {
         data.map((elem, index) => (
             <Stripe key={index} val={elem} />

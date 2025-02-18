@@ -12,16 +12,18 @@ const LoginPage = () => {
           <h1 className='text-[23px] font-semibold'>Job Portal</h1>
         </div>
       </div>
-      <div className='h-[calc(100dvh-10dvh)] bg-gradient-to-b from-[#231b17] to-[#222222] relative'>
-        <div className='flex justify-center'>
-          <div className='h-[250px] w-[450px] px-4 bg-white text-black flex flex-col justify-center rounded-3xl mt-[150px]'>
+      <div className='h-[800px] bg-gradient-to-b from-[#231b17] to-[#222222] flex flex-col justify-center items-center border-2 border-red-200'>
+        <div className='flex flex-col border-2 border-yellow-500'>
+          <div className='border-2 border-yellow h-[250px] w-[450px] px-4 bg-white text-black flex flex-col items-center rounded-3xl '>
             <input className='w-full my-3 border-b-2 outline-none p-1' type="email" placeholder='Email' />
             <input className='w-full my-3 border-b-2 outline-none p-1' type="password" placeholder='Password' />
             <Button title='Sign Up' className='self-center text-white w-full text-center my-5 h-10' innerClass=' ' />
           </div>
-          <Stripes />
+          <div className='mt-auto '>
+            <Stripes />
+          </div>
         </div>
-        
+
       </div>
     </div>
   )
