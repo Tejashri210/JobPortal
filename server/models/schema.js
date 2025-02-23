@@ -29,6 +29,7 @@ const userSchema = new Schema(
   { timestamps: true }
 );
 
+
 // Company Schema
 const companySchema = new Schema(
   {

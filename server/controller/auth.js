@@ -3,7 +3,9 @@ const bcrypt = require('bcrypt');
 const { User } = require('../models/schema');  
 const {generateToken} = require("../utils/generateToken")
 const router = express.Router();
-
+// const sendVerificationEamil = require("../config/emailconfig")
+//import { sendVerificationEamil } from '../middelware/email';
+const {sendVerificationEamil}  = require("../middelware/email")
 // Registration route
 router.post('/register', async (req, res) => {
   const { role, fullname, email, password,phoneNumber, profileImage, companyId} = req.body;
@@ -32,11 +34,13 @@ router.post('/register', async (req, res) => {
       phoneNumber, profileImage, companyId
       
     });
+    console.log(newUser)
      
     let token = generateToken(newUser);
     res.cookie("token",token);
     console.log(token)
-
+    let e ="kousenattar2004@gmail.com"
+    await sendVerificationEamil();
 
     res.status(201).json({ message: 'User registered successfully', user: newUser });
   } catch (err) {
@@ -49,5 +53,7 @@ router.post('/register', async (req, res) => {
     });
   }
 });
+
+
 
 module.exports = router;
