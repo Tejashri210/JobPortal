@@ -3,9 +3,8 @@ const bcrypt = require('bcrypt');
 const { User } = require('../models/schema');  
 const {generateToken} = require("../utils/generateToken")
 const router = express.Router();
-// const sendVerificationEamil = require("../config/emailconfig")
-//import { sendVerificationEamil } from '../middelware/email';
-const {sendVerificationEamil}  = require("../middelware/email")
+const {sendVerificationEmail}  = require("../middelware/email")
+
 // Registration route
 router.post('/register', async (req, res) => {
   const { role, fullname, email, password,phoneNumber, profileImage, companyId} = req.body;
@@ -38,9 +37,11 @@ router.post('/register', async (req, res) => {
      
     let token = generateToken(newUser);
     res.cookie("token",token);
-    console.log(token)
-    let e ="kousenattar2004@gmail.com"
-    await sendVerificationEamil();
+  
+    let verificationCode =  Math.floor(100000 + Math.random() * 900000).toString();
+
+    await sendVerificationEmail(newUser.email,verificationCode);
+    console.log("email is send")
 
     res.status(201).json({ message: 'User registered successfully', user: newUser });
   } catch (err) {

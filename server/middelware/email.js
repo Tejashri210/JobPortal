@@ -1,7 +1,5 @@
 const nodemailer = require("nodemailer");
 require("dotenv").config(); // Load environment variables
-let e = require("../controller/auth")
-let c = require("../controller/auth")
 
 const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -31,5 +29,5 @@ const sendVerificationEmail = async (email, verificationCode) => {
 };
 
 // ✅ Export the function so it can be used in other files
-sendVerificationEmail("kousenattar2004@gmail.com",255661)
+//sendVerificationEmail("kousenattar2004@gmail.com",255661)
 module.exports = { sendVerificationEmail };
