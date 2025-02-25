@@ -24,7 +24,11 @@ const userSchema = new Schema(
     password: { type: String, required: true },
     phoneNumber: { type: String, required: true, unique: true },
     profileImage: { type: String },
-    companyId: { type: Schema.Types.ObjectId, ref: "Company", required: true },
+    companyId: { 
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "Company",
+      required: function() { return this.role === "hirer"; } // Required only for hirers
+    },
   },
   { timestamps: true }
 );

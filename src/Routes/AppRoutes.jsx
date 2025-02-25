@@ -1,5 +1,5 @@
 import React from "react";
-import { RouterProvider, Route, createBrowserRouter, createRoutesFromElements } from "react-router";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import Landing from "../pages/Landing/LandingPage";
 import SignUp from "../pages/SignUp/SignUpPage";
@@ -12,30 +12,20 @@ import Profile from "../pages/Profile/Profile";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import PostJob from "../pages/Post/PostJob"; 
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <>
-      <Route path="/" element={<Landing />} />
-      <Route path="/sign-up" element={<SignUp />} />
-      <Route path="/login" element={<Login />} />
+// ✅ Define routes correctly
+const router = createBrowserRouter([
+  { path: "/", element: <Landing /> },
+  { path: "/sign-up", element: <SignUp /> },
+  { path: "/login", element: <Login /> },
+  { path: "/jobs", element: <JobSeek /> },
+  { path: "/jobs/:id", element: <JobDetails /> },
+  { path: "/profile", element: <Profile /> },
+  { path: "/post-job", element: <PostJob /> },
+  { path: "/dashboard", element: <Dashboard /> },
+  { path: "/applications", element: <Application /> },
+  { path: "/saved-jobs", element: <SavedJobs /> }
+]);
 
-      <Route path="/jobs" element={<JobSeek />} />
-      <Route path="/jobs/:id" element={<JobDetails/>} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/post-job" element={<PostJob />} />
-      <Route path="/dashboard" element={<Dashboard/>} />
-      <Route path="/applications" element={<Application />} />
-      <Route path="/saved-jobs" element={<SavedJobs />} /> 
-    </>
-  )
-)
-
-const AppRoutes = () => {
-  return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  );
-}
+const AppRoutes = () => <RouterProvider router={router} />;
 
 export default AppRoutes;

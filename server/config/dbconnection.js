@@ -1,9 +1,14 @@
 const mongoose = require('mongoose');
-
+const dotenv = require("dotenv")
+require("dotenv").config();
+dotenv.config();
+dotenv.config({
+  path: "./config/.env"
+});
 
 const connectDB = async () => {
   try {
-    await mongoose.connect('mongodb://127.0.0.1:27017/job-portal', {
+    await mongoose.connect(process.env.MONGO_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
