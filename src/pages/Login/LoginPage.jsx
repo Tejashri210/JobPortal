@@ -44,6 +44,7 @@ const LoginPage = () => {
             <IoIosArrowBack className='text-4xl' />
           </Link>
           <IoBagCheck className='text-[24px] font-semibold' />
+
           <h1 className='text-[23px] font-semibold'>Job Portal</h1>
         </div>
       </div>

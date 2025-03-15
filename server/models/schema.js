@@ -25,10 +25,12 @@ const userSchema = new Schema(
     phoneNumber: { type: String, required: true, unique: true },
     profileImage: { type: String },
     companyId: { 
-      type: mongoose.Schema.Types.ObjectId, 
+      type: Schema.Types.ObjectId, 
       ref: "Company",
       required: function() { return this.role === "hirer"; } // Required only for hirers
     },
+    otp: { type: String }, // Stores the OTP
+    otpExpiresAt: { type: Date }, // Expiration time for OTP
   },
   { timestamps: true }
 );

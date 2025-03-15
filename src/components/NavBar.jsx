@@ -16,7 +16,7 @@ const NavBar = () => {
       {/* Right Section: Buttons */}
       <div className='flex gap-4'>
         <Link to='/login'>
-          <Button title='Login' icon={<IoIosReturnRight />} className='!bg-transparent border border-white hover:bg-white hover:text-black transition' />
+          <Button title='Login' icon={<IoIosReturnRight />} className='!bg-transparent border border-white hover:bg-white hover:text-gray-400 transition' />
         </Link>
         <Link to='/sign-up'>
           <Button title='Register' icon={<IoIosReturnRight />} className='bg-blue-600 hover:bg-blue-700 transition' />
